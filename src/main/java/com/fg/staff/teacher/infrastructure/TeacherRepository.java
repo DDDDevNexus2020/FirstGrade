@@ -1,4 +1,4 @@
-package com.fg.staff.teacher.database;
+package com.fg.staff.teacher.infrastructure;
 
 import com.fg.staff.teacher.model.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;

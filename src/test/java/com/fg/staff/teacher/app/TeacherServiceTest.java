@@ -1,6 +1,6 @@
 package com.fg.staff.teacher.app;
 
-import com.fg.staff.teacher.database.TeacherRepository;
+import com.fg.staff.teacher.infrastructure.TeacherRepository;
 import com.fg.staff.teacher.model.Address;
 import com.fg.staff.teacher.model.Teacher;
 import com.fg.staff.teacher.test.BaseTeacherTest;
