@@ -33,3 +33,7 @@ dependencies {
     testImplementation group: 'uk.co.jemos.podam', name: 'podam', version: '7.2.3.RELEASE'
 
 }
+
+test {
+    useJUnitPlatform()
+}
