@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor(access = AccessLevel.PRIVATE) // Lombok annotation to add an all-args constructor for @Builder.
 public class CreateTeacherCmd {
 
-    @JsonProperty("name") // Jackson annotation to specify the property name in the JSON body.
+    @JsonProperty("teacher-name") // Jackson annotation to specify the property name in the JSON body.
     @NotBlank(message = "The teacher name is required.") // Spring annotation used by @Valid in the REST Controller.
     private String name;
 

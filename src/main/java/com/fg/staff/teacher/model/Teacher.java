@@ -38,6 +38,7 @@ public class Teacher {
      */
     public Teacher(String name) {
         this.name = name;
+        this.validate();
     }
 
     /**
