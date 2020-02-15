@@ -1,8 +1,9 @@
 # Section 1 Exercise
 
 ## Ubiquitous Language
-In Domain Driven Design, the term *Ubiquitous Language* refers to the mutually agreed-upon language shared by all members of the business and development teams within a particular business context. A useful tool to discover the language of the business is a **Word Cloud**. 
+In Domain-Driven Design, the term **ubiquitous language** refers to the mutually agreed-upon language shared by all members of the business and development teams within a particular business context. A useful tool to discover the language of the business is a **word cloud**. 
 
+### Goal
 The **goal** of this exercise is to leverage a word cloud to discover the ubiquitous language of the *First Grade* project.
 
 ### Solo Phase (15 minutes)
