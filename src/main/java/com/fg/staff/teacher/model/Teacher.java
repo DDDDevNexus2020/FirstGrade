@@ -1,5 +1,6 @@
 package com.fg.staff.teacher.model;
 
+import com.fg.infrastructure.model.ValidatingModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,16 +9,14 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.*;
 import javax.validation.constraints.NotBlank;
-import java.util.Set;
 import java.util.UUID;
 
 // Domain Model JPA Entity!
 @Entity // JPA annotation marking this class as a JPA entity. Also convenient because this class is a DDD-style entity!
 @Getter // Lombok annotation to make public get() methods.
 @NoArgsConstructor(access = AccessLevel.PRIVATE) // Required by Spring/JPA. Everyone else must use builder methods.
-public class Teacher {
+public class Teacher implements ValidatingModel<Teacher> {
 
     // --------------------------------------------------- PROPERTIES --------------------------------------------------
 
@@ -69,20 +68,4 @@ public class Teacher {
         this.homeAddress = homeAddress;
     }
 
-    /**
-     * Validates this entity.
-     *
-     * @throws ConstraintViolationException containing any invalid properties.
-     */
-    public void validate() {
-
-        // This is a "fancy" way of doing validation. After the entity has been changed in whatever way need be, you
-        // then call this method and an exception will be thrown containing anything that's wrong with the entity.
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
-        Set<ConstraintViolation<Teacher>> violations = validator.validate(this);
-        if (!violations.isEmpty()) {
-            throw new ConstraintViolationException(violations);
-        }
-    }
 }

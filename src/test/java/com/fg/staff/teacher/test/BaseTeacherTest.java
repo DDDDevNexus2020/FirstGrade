@@ -3,21 +3,14 @@ package com.fg.staff.teacher.test;
 import com.fg.staff.teacher.api.contract.ChangeAddressCmd;
 import com.fg.staff.teacher.model.Address;
 import com.fg.staff.teacher.model.Teacher;
-import uk.co.jemos.podam.api.PodamFactory;
-import uk.co.jemos.podam.api.PodamFactoryImpl;
+import com.fg.test.BaseTest;
 
 import java.util.UUID;
 
 /**
  * Helper methods and properties for Teacher tests.
  */
-public abstract class BaseTeacherTest {
-
-    // ----------------------------------------------- MEMBER VARIABLES ------------------------------------------------
-
-    // To create random data
-    protected static final PodamFactory podamFactory = new PodamFactoryImpl();
-
+public abstract class BaseTeacherTest extends BaseTest {
 
     // ------------------------------------------------ HELPER METHODS -------------------------------------------------
 

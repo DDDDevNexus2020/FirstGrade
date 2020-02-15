@@ -1,7 +1,7 @@
 package com.fg.staff.teacher.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fg.staff.Application;
+import com.fg.Application;
 import com.fg.staff.teacher.api.contract.ChangeAddressCmd;
 import com.fg.staff.teacher.api.contract.CreateTeacherCmd;
 import com.fg.staff.teacher.api.contract.TeacherData;
