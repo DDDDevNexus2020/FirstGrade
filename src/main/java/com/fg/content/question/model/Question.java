@@ -43,7 +43,7 @@ public class Question implements ValidatingModel<Question> {
     // ------------------------------------------------- CONSTRUCTOR ---------------------------------------------------
 
     public Question(String text, int gradeLevel, List<String> tags) {
-        this.text = text;
+        this.setText(text);
         this.changeFilterCriteria(gradeLevel, tags);
     }
 

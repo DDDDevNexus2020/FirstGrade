@@ -1,18 +1,15 @@
 package com.fg.content.question.model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 @Getter
 @EqualsAndHashCode
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@RequiredArgsConstructor
 public class QuestionId implements Serializable {
 
-    private UUID id;
+    private final UUID id;
 
 }

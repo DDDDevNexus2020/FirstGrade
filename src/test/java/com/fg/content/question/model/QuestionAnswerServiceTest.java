@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import javax.validation.ConstraintViolationException;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -53,7 +54,7 @@ class QuestionAnswerServiceTest {
 
         // WHEN an attempt is made to add the Answer to the Question
         // THEN an error should be thrown.
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(ConstraintViolationException.class,
                      () -> questionAnswerService.addAnswerToQuestion(questionId, newAnswer));
 
         // Verify mocks

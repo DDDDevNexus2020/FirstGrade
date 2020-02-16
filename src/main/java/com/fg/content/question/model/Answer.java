@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
+@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Answer implements ValidatingModel<Answer> {
 
@@ -38,15 +39,15 @@ public class Answer implements ValidatingModel<Answer> {
     // ------------------------------------------------- CONSTRUCTOR ---------------------------------------------------
 
     public Answer(String text, boolean isCorrect) {
-        this.text = text;
-        this.isCorrect = isCorrect;
+        this.setText(text);
+        this.setCorrect(isCorrect);
     }
 
 
     // ------------------------------------------------ PUBLIC METHODS -------------------------------------------------
 
     public void addToQuestion(QuestionId questionId) {
-        this.questionId = questionId;
+        this.setQuestionId(questionId);
         this.validate();
     }
 }

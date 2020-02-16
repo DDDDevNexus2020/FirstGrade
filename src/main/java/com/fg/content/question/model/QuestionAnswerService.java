@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import java.util.Set;
 
 @Service
@@ -25,7 +27,7 @@ public class QuestionAnswerService {
 
         // Answers cannot be duplicated
         if (this.isDuplicateAnswer(questionId, answer)) {
-            throw new IllegalArgumentException("Answers with duplicate text are not allowed.");
+            throw new ConstraintViolationException("Answers with duplicate text are not allowed.", null);
         }
 
         // Answer now references Question
