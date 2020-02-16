@@ -4,18 +4,14 @@ import com.fg.infrastructure.model.ValidatingModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -26,29 +22,30 @@ public class Answer implements ValidatingModel<Answer> {
 
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+    @GenericGenerator(name = "UUID", strategy = "com.fg.content.question.model.AnswerIdGenerator")
+    private AnswerId id;
 
     @NotBlank(message = "The answer text is required.")
     private String text;
 
     @NotNull(message = "The answer must be associated with a question.")
-    private UUID questionId;
+    private QuestionId questionId;
 
+    @Setter(AccessLevel.PROTECTED)
     private boolean isCorrect;
 
 
     // ------------------------------------------------- CONSTRUCTOR ---------------------------------------------------
 
-    public Answer(UUID questionId, String text) {
+    public Answer(String text, boolean isCorrect) {
         this.text = text;
-        this.questionId = questionId;
+        this.isCorrect = isCorrect;
     }
 
 
     // ------------------------------------------------ PUBLIC METHODS -------------------------------------------------
 
-    public void addToQuestion(UUID questionId) {
+    public void addToQuestion(QuestionId questionId) {
         this.questionId = questionId;
         this.validate();
     }

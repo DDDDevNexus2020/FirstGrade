@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -31,9 +29,8 @@ class AnswerRepositoryTest extends BaseTest {
     void verifySave() {
 
         // GIVEN a fully populated Answer entity,
-        UUID questionId = UUID.randomUUID();
         String text = podamFactory.manufacturePojo(String.class);
-        Answer expectedAnswer = new Answer(questionId, text);
+        Answer expectedAnswer = new Answer(text, false);
 
         // WHEN the Answer is persisted,
         Answer newAnswer = answerRepository.save(expectedAnswer);

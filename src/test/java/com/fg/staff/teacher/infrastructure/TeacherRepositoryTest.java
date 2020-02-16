@@ -14,7 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * functioning. This is using H2 in a unit testing capacity, and therefore isn't an integration test (which would access
  * an external database directly).
  */
-@DataJpaTest // SpringBoot annotation to initialize JPA context for unit testing.
+@DataJpaTest
+        // SpringBoot annotation to initialize JPA context for unit testing.
 class TeacherRepositoryTest extends BaseTeacherTest {
 
     // ----------------------------------------------- MEMBER VARIABLES ------------------------------------------------

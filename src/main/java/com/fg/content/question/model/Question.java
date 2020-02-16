@@ -12,9 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -26,8 +26,8 @@ public class Question implements ValidatingModel<Question> {
 
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+    @GenericGenerator(name = "UUID", strategy = "com.fg.content.question.model.QuestionIdGenerator")
+    private QuestionId id;
 
     @NotBlank(message = "The question text is required.")
     private String text;
@@ -62,6 +62,9 @@ public class Question implements ValidatingModel<Question> {
      * Retrieves the tags for this Question.
      */
     public List<String> getTags() {
+        if (tags == null) {
+            return new ArrayList<>();
+        }
         return Arrays.asList(this.tags.split(";"));
     }
 
@@ -72,6 +75,9 @@ public class Question implements ValidatingModel<Question> {
      * Sets the tags for this Question to the given tags.
      */
     public void setTags(List<String> tags) {
+        if (tags == null || tags.isEmpty()) {
+            this.tags = null;
+        }
         this.tags = StringUtils.join(tags, ';');
     }
 
